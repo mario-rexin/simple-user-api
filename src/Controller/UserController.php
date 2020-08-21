@@ -45,7 +45,7 @@ class UserController
         $user = $this->userRepository->findOneBy(['id' => $id]);
 
         if (empty($user)) {
-            return new JsonResponse(['status' => 'no user found'], Response::HTTP_NOT_FOUND);
+            return new JsonResponse(['status' => 'user not found'], Response::HTTP_NOT_FOUND);
         }
 
         $data = [
@@ -79,9 +79,14 @@ class UserController
     /**
      * @Route("/users/{id}", name="update_user", methods={"PUT"})
      */
-    public function update($id, Request $request)
+    public function update($id, Request $request): JsonResponse
     {
         $user = $this->userRepository->findOneBy(['id' => $id]);
+
+        if (empty($user)) {
+            return new JsonResponse(['status' => 'user not found'], Response::HTTP_NOT_FOUND);
+        }
+
         $data = json_decode($request->getContent(), true);
 
         empty($data['name']) ? true : $user->setName($data['name']);
@@ -98,6 +103,11 @@ class UserController
     public function delete($id): JsonResponse
     {
         $user = $this->userRepository->findOneBy(['id' => $id]);
+
+        if (empty($user)) {
+            return new JsonResponse(['status' => 'user not found'], Response::HTTP_NOT_FOUND);
+        }
+
         $this->userRepository->removeUser($user);
 
         return new JsonResponse(['status' => 'user deleted'], Response::HTTP_NO_CONTENT);
