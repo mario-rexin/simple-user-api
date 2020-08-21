@@ -22,11 +22,10 @@ class UserControllerTest extends WebTestCase
           'email' => 'test@test.com'
         );
 
-       $client = static::createClient();
-       $client->request('POST', '/users', [], [], [], json_encode($data));
+        $client = static::createClient();
+        $client->request('POST', '/users', [], [], [], json_encode($data));
 
-       $this->assertEquals(201, $client->getResponse()->getStatusCode());
-
+        $this->assertEquals(201, $client->getResponse()->getStatusCode());
     }
 
     public function testGetAllUsers()

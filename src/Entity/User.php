@@ -71,5 +71,4 @@ class User
             'email' => $this->getEmail()
         ];
     }
-
 }

@@ -14,10 +14,10 @@ class AppFixtures extends Fixture
         $faker = Factory::create();
 
         for ($i = 0; $i < 50; $i++) {
-			      $user = new User();
-			      $user->setName($faker->name);
-			      $user->setEmail($faker->email);
-    		    $manager->persist($user);
+            $user = new User();
+            $user->setName($faker->name);
+            $user->setEmail($faker->email);
+            $manager->persist($user);
         }
         
         $manager->flush();
