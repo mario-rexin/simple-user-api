@@ -9,3 +9,11 @@ services:
       MYSQL_DATABASE: simple_user_api
     ports:
       - "3308:3306"
+
+  mysql-test:
+    image: mysql:8.0.17
+    environment:
+      MYSQL_ROOT_PASSWORD: ve977as0da4
+      MYSQL_DATABASE: simple_user_api_test
+    ports:
+      - "3309:3306"

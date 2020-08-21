@@ -22,6 +22,13 @@ class User
      */
     private $name;
 
+    public function setId(int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */

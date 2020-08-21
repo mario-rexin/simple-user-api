@@ -44,6 +44,10 @@ class UserController
     {
         $user = $this->userRepository->findOneBy(['id' => $id]);
 
+        if (empty($user)) {
+           return new JsonResponse(['status' => 'no user found'], Response::HTTP_NOT_FOUND);
+        }
+
         $data = [
             'id' => $user->getId(),
             'name' => $user->getName(),
