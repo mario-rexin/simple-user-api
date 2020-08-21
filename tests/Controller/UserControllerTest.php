@@ -3,11 +3,7 @@
 
 namespace App\Tests\Controller;
 
-use App\DataFixtures\AppFixtures;
-use Doctrine\Common\DataFixtures\Loader;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
-use Doctrine\Common\DataFixtures\Purger\ORMPurger;
 
 class UserControllerTest extends WebTestCase
 {
